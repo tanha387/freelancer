@@ -14,5 +14,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
- const slide=document.querySelectorAll('.carousel')
- console.log(slide)
+
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+  
+  function showSlide(index) {
+      console.log('Current Slide:', currentSlide);
+      slides.forEach((slide, i) => {
+          if (i === index) {
+              console.log('Adding active class to slide', i);
+              slide.classList.add('active');
+          } else {
+              console.log('Removing active class from slide', i);
+              slide.classList.remove('active');
+          }
+      });
+  }
+  
+  function nextSlide() {
+      currentSlide++;
+      if (currentSlide >= slides.length) {
+          currentSlide = 0;
+      }
+      showSlide(currentSlide);
+  }
+  
+  showSlide(currentSlide);
+  
+  setInterval(nextSlide, 3000);
+  
+  
+
+  
