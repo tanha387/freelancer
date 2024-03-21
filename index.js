@@ -119,5 +119,58 @@ nextBtns.addEventListener('click', showNextSlide);
 
 showSlide(currentSlideIndexs); // Show initial slide
 
-  
-  
+
+//////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', function () {
+    const prevBtn = document.querySelector('.testimonial-prev-btn');
+    const nextBtn = document.querySelector('.testimonial-next-btn');
+    const slides = document.querySelectorAll('.slide');
+    let currentSlideIndex = 0;
+    let autoSlideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index && slide.textContent.trim() !== '') {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
+
+    function showNextSlide() {
+        currentSlideIndex++;
+        if (currentSlideIndex >= slides.length) {
+            currentSlideIndex = 0;
+        }
+        showSlide(currentSlideIndex);
+    }
+
+    function showPrevSlide() {
+        currentSlideIndex--;
+        if (currentSlideIndex < 0) {
+            currentSlideIndex = slides.length - 1;
+        }
+        showSlide(currentSlideIndex);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(showNextSlide, 1000); // Faster interval (change as needed)
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    prevBtn.addEventListener('click', function () {
+        stopAutoSlide();
+        showPrevSlide();
+    });
+
+    nextBtn.addEventListener('click', function () {
+        stopAutoSlide();
+        showNextSlide();
+    });
+
+    startAutoSlide(); // Start automatic sliding by default
+});

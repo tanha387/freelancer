@@ -429,37 +429,66 @@ h5{
     }
 
 
-    .testimonial-section{
-    
+    .testimonial-section {
       width: 700px;
-      
       margin: auto;
       padding: 45px 65px 35px 65px;
       color: black;
       text-align: center;
       height: 200px;
       box-shadow: 1px 1px 1px 1px #888888;
-    }
-    .testimonial-prev-btn {
+      position: relative; /* Add relative positioning */
+      margin-top: 30px;
+  }
+  
+  .testimonial-prev-btn, .testimonial-next-btn {
       width: 50px; 
       height: 50px; 
       border-radius: 50%;
       background-color: #011311;
       position: absolute;
-    margin-left: -23%;
-    margin-top:50px ;
- 
-
-      
+      top: 50%;
+      transform: translateY(-50%);
   }
-  .testimonial-next-btn{
-    width: 50px; 
-    height: 50px; 
-    border-radius: 50%;
-    background-color: #011311;
-    position: absolute;
-  margin-left: 21%;
-  margin-top:50px ;
+  
+  .testimonial-prev-btn {
+      left: 0; /* Position the button to the left */
+  }
+  
+  .testimonial-next-btn {
+      right: 0; /* Position the button to the right */
+  }
+  .foooter-section{
+    height: 90%;
+    background-color: black;
+    margin-top: 50px;
+    padding: 8%;
+  }
+  @media (max-width: 1536px) {
+       
+    .foooter-section{
+      width: 90%;
+    }
+  }
+  @media (max-width: 1024px) {
+       
+    .foooter-section{
+      width: 80%;
+    }
+    .newssettlrer{
+      margin: 0;
+    }
+    .INFORMATION{
+      margin: 0;
 
-
+    }
+    .OFFICES{
+      margin: 0;
+    }
+  }
+  @media (max-width: 1536px) {
+       
+    .foooter-section{
+     display: inline-block;
+    }
   }
