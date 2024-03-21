@@ -178,7 +178,12 @@ body{
       opacity: 0;
       transition: opacity 0.5s ease;
   }
-  
+  @media (max-width: 700px) {
+       
+    .slide {
+      display: inline-block;
+    }
+  }
   .slide.active {
       opacity: 1;
   }
@@ -206,3 +211,233 @@ body{
     border-radius: 5px;
     font-size: 24px;
 }
+
+
+.header-btn{
+  padding: 10px 30px;
+}
+
+
+
+
+.experience-section{
+  display: flex;
+  align-items: center;
+  margin: 10% 20%;
+  color: black;
+}
+.experience-btn{
+  padding: 10px 40px;
+  background-color: black;
+  color: aliceblue;
+
+}
+
+@media (max-width: 1024px) {
+       
+  .experience-img{
+    width: auto;
+    margin-top: 50px;
+  }
+}
+@media (max-width: 1024px) {
+       
+  .experience-section{
+    margin: 0;
+  }
+}
+@media (max-width: 1280px) {
+       
+  .experience-section{
+    margin: 0;
+  }
+}
+@media (max-width: 1536px) {
+       
+  .experience-section{
+    margin: 0;
+  }
+}
+@media (max-width: 1800px) {
+       
+  .experience-section{
+    margin: 0;
+  }
+}
+@media (max-width: 768px) {
+       
+  .experience-section{
+    display: block;
+  }
+}
+
+
+
+.CATEGORY-section{
+   background-color: #1cbbb4;
+   padding-top: 40px;
+   padding-bottom: 40px;
+   text-align: center;
+}
+.Category{
+  display: inline-block;
+
+  margin-top: 25px;
+
+}
+.box{
+  align-items: center;
+  margin: 10px 120px;
+  min-width: 130px;
+  flex-basis: 26%;
+  flex-direction: column;
+}
+.box-img{
+  height: 70px;
+  width: 100px;
+  align-items: center;
+}
+h5{
+  font-size: 15px;
+}
+.row-1{
+  display: flex;
+}
+.row-2{
+  display: flex;
+}
+@media (max-width: 1024px) {
+       
+  .CATEGORY-section{
+    padding: 0;
+  }
+  .box{
+    margin:30px;
+  }
+}
+@media (max-width: 768px) {
+       
+  .row-1{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .CATEGORY-section{
+    margin-top: 60px;
+  }
+}
+.about-speering{
+  align-items: center;
+  text-align: center;
+  color: black;
+  
+}
+    
+    
+.speering-img{
+  vertical-align: middle;
+  width: auto;
+
+}
+.speering-description{
+  margin: 0 10%;
+  color: darkslategray;
+}
+
+
+@media (max-width: 1536px) {
+       
+  .speering-img{
+    width: 40%;
+  }
+}
+@media (max-width: 768px) {
+       
+  .speering-img{
+    width: 100%;
+  }
+}
+
+.freelancer-img{
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+  background-color: black;
+  padding: 10px;
+  align-items: end;
+ 
+}
+.freelancer-section{
+  color: black;
+  margin-top: 5%;
+  margin-left: 8%;
+  margin-right: 8%;
+  
+ 
+}
+.freelancers{
+  display: flex;
+  justify-content: space-between;
+}
+.freelancer-amounts{
+  margin-left: 10px;
+}
+@media (max-width: 1536px) {
+       
+  .freelancer-img-box{
+    width: 70%;
+    margin-left: 20%;
+  }
+  h2{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+       
+ 
+  .freelancer-img-box{
+    width: 50%;
+  }
+}
+@media (max-width: 1536px) {
+       
+  .freelancer-section{
+    margin-left: 5%;
+    margin-right: 0;
+    
+  }}
+  @media (max-width: 1280px) {
+       
+    .freelancer-section{
+      margin-left: 0;
+      margin-right: 0;
+      
+    }
+    h2{
+      font-size: 18px;
+    }}
+    @media (max-width: 768px) {
+       
+      .freelancers{
+       display: inline-block;
+        
+      }
+      h2{
+        font-size: 20px;
+      }
+    }
+
+
+    .testimonial-section{
+    
+      width: 700px;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      padding: 45px 65px 35px 65px;
+      color: black;
+      text-align: center;
+      height: 100px;
+      box-shadow: 15px 10px #888888;
+    }
