@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const nextBtn = document.querySelector('.next-btn');
   let currentSlideIndex = 0;
   let autoSlideInterval;
+  const slideNumber = document.querySelector('.slide-number'); // Select the slide number element
+
+  function updateSlideNumber(index) {
+      slideNumber.textContent = index + 1; // Update the slide number
+  }
 
   function showSlide(index) {
       slides.forEach((slide, i) => {
@@ -30,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
               slide.classList.remove('active');
           }
       });
+      updateSlideNumber(index); // Update the slide number
   }
 
   function showNextSlide() {

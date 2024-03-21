@@ -147,8 +147,8 @@ body{
     
     @media (max-width: 700px) {
         .carousel-buttons {
-            margin-top: 10%; /* Adjust vertical margin for smaller screens */
-            margin-left: 5%; /* Adjust horizontal margin for smaller screens */
+            margin-top: 10%; 
+            margin-left: 5%; 
         }
     }
     
