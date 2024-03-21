@@ -15,34 +15,56 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
   const slides = document.querySelectorAll('.slide');
-  let currentSlide = 0;
+  let currentSlideIndex = 0;
+  let autoSlideInterval;
   
   function showSlide(index) {
-      console.log('Current Slide:', currentSlide);
       slides.forEach((slide, i) => {
           if (i === index) {
-              console.log('Adding active class to slide', i);
               slide.classList.add('active');
           } else {
-              console.log('Removing active class from slide', i);
               slide.classList.remove('active');
           }
       });
   }
   
-  function nextSlide() {
-      currentSlide++;
-      if (currentSlide >= slides.length) {
-          currentSlide = 0;
+  function showNextSlide() {
+      currentSlideIndex++;
+      if (currentSlideIndex >= slides.length) {
+          currentSlideIndex = 0;
       }
-      showSlide(currentSlide);
+      showSlide(currentSlideIndex);
   }
   
-  showSlide(currentSlide);
+  function showPrevSlide() {
+      currentSlideIndex--;
+      if (currentSlideIndex < 0) {
+          currentSlideIndex = slides.length - 1;
+      }
+      showSlide(currentSlideIndex);
+  }
   
-  setInterval(nextSlide, 3000);
+  function startAutoSlide() {
+      autoSlideInterval = setInterval(showNextSlide, 3000); // Change the interval time as needed
+  }
   
+  function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+  }
   
-
+  prevBtn.addEventListener('click', function() {
+      stopAutoSlide();
+      showPrevSlide();
+  });
+  
+  nextBtn.addEventListener('click', function() {
+      stopAutoSlide();
+      showNextSlide();
+  });
+  
+  startAutoSlide(); // Start automatic sliding by default
+  
   
