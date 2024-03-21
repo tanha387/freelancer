@@ -1,26 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.querySelector('.menu');
-    const secondMenu = document.querySelector('.second-menu');
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('.menu');
+  const secondMenu = document.querySelector('.second-menu');
 
-    menuToggle.addEventListener('change', function () {
-      if (menuToggle.checked) {
-        menu.classList.add('active');
-        secondMenu.classList.add('active');
-      } else {
-        menu.classList.remove('active');
-        secondMenu.classList.remove('active');
-      }
-    });
+  menuToggle.addEventListener('change', function () {
+    if (menuToggle.checked) {
+      menu.classList.add('active');
+      secondMenu.classList.add('active');
+    } else {
+      menu.classList.remove('active');
+      secondMenu.classList.remove('active');
+    }
   });
+});
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.slide');
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
-  const slides = document.querySelectorAll('.slide');
   let currentSlideIndex = 0;
   let autoSlideInterval;
-  
+
   function showSlide(index) {
       slides.forEach((slide, i) => {
           if (i === index) {
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
       });
   }
-  
+
   function showNextSlide() {
       currentSlideIndex++;
       if (currentSlideIndex >= slides.length) {
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       showSlide(currentSlideIndex);
   }
-  
+
   function showPrevSlide() {
       currentSlideIndex--;
       if (currentSlideIndex < 0) {
@@ -46,25 +47,71 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       showSlide(currentSlideIndex);
   }
-  
+
   function startAutoSlide() {
       autoSlideInterval = setInterval(showNextSlide, 3000); // Change the interval time as needed
   }
-  
+
   function stopAutoSlide() {
       clearInterval(autoSlideInterval);
   }
-  
+
   prevBtn.addEventListener('click', function() {
       stopAutoSlide();
       showPrevSlide();
   });
-  
+
   nextBtn.addEventListener('click', function() {
       stopAutoSlide();
       showNextSlide();
   });
-  
+
   startAutoSlide(); // Start automatic sliding by default
+});
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+const prevBtns = document.querySelector('.prev-btn');
+const nextBtns = document.querySelector('.next-btn');
+const slidess = document.querySelectorAll('.slide'); // Updated variable name
+let currentSlideIndexs = 0; // Updated variable name
+const slideNumber = document.querySelector('.slide-number');
+
+function updateSlideNumber(index) {
+    slideNumber.textContent = index + 1; // Display slide number starting from 1
+}
+
+function showSlide(index) {
+    slidess.forEach((slide, i) => {
+        if (i === index) {
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
+    });
+    updateSlideNumber(index);
+}
+
+function showNextSlide() {
+    currentSlideIndexs++;
+    if (currentSlideIndexs >= slidess.length) {
+        currentSlideIndexs = 0;
+    }
+    showSlide(currentSlideIndexs);
+}
+
+function showPrevSlide() {
+    currentSlideIndexs--;
+    if (currentSlideIndexs < 0) {
+        currentSlideIndexs = slidess.length - 1;
+    }
+    showSlide(currentSlideIndexs);
+}
+
+prevBtns.addEventListener('click', showPrevSlide);
+nextBtns.addEventListener('click', showNextSlide);
+
+showSlide(currentSlideIndexs); // Show initial slide
+
   
   
