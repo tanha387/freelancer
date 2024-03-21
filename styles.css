@@ -128,8 +128,8 @@ body{
         background-color:#1cbbb4; 
      }
    
+   
   
-
   
      .carousel-buttons {
         position: absolute;
@@ -432,12 +432,34 @@ h5{
     .testimonial-section{
     
       width: 700px;
-      align-items: center;
-      justify-content: center;
+      
       margin: auto;
       padding: 45px 65px 35px 65px;
       color: black;
       text-align: center;
-      height: 100px;
-      box-shadow: 15px 10px #888888;
+      height: 200px;
+      box-shadow: 1px 1px 1px 1px #888888;
     }
+    .testimonial-prev-btn {
+      width: 50px; 
+      height: 50px; 
+      border-radius: 50%;
+      background-color: #011311;
+      position: absolute;
+    margin-left: -23%;
+    margin-top:50px ;
+ 
+
+      
+  }
+  .testimonial-next-btn{
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    background-color: #011311;
+    position: absolute;
+  margin-left: 21%;
+  margin-top:50px ;
+
+
+  }
