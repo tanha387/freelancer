@@ -124,52 +124,54 @@ showSlide(currentSlideIndexs); // Show initial slide
 document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = document.querySelector('.testimonial-prev-btn');
     const nextBtn = document.querySelector('.testimonial-next-btn');
-    const slides = document.querySelectorAll('.slide');
-    let currentSlideIndex = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+    let currentTestimonialIndex = 0;
     let autoSlideInterval;
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            if (i === index && slide.textContent.trim() !== '') {
-                slide.classList.add('active');
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            if (i === index) {
+                testimonial.style.display = 'inline-block';
             } else {
-                slide.classList.remove('active');
+                testimonial.style.display = 'none';
             }
         });
     }
 
-    function showNextSlide() {
-        currentSlideIndex++;
-        if (currentSlideIndex >= slides.length) {
-            currentSlideIndex = 0;
-        }
-        showSlide(currentSlideIndex);
+    function showNextTestimonial() {
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+        showTestimonial(currentTestimonialIndex);
     }
 
-    function showPrevSlide() {
-        currentSlideIndex--;
-        if (currentSlideIndex < 0) {
-            currentSlideIndex = slides.length - 1;
-        }
-        showSlide(currentSlideIndex);
+    function showPrevTestimonial() {
+        currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentTestimonialIndex);
     }
 
     function startAutoSlide() {
-        autoSlideInterval = setInterval(showNextSlide, 1000); // Faster interval (change as needed)
+        autoSlideInterval = setInterval(showNextTestimonial, 2000); // Faster interval (change as needed)
     }
 
     function stopAutoSlide() {
         clearInterval(autoSlideInterval);
     }
 
+    function startAutoSlideIfNotRunning() {
+        if (!autoSlideInterval) {
+            startAutoSlide();
+        }
+    }
+
     prevBtn.addEventListener('click', function () {
-        stopAutoSlide();
-        showPrevSlide();
+        showPrevTestimonial();
+        stopAutoSlide(); // Stop auto sliding when button is clicked
+        startAutoSlideIfNotRunning(); // Restart auto sliding if not already running
     });
 
     nextBtn.addEventListener('click', function () {
-        stopAutoSlide();
-        showNextSlide();
+        showNextTestimonial();
+        stopAutoSlide(); // Stop auto sliding when button is clicked
+        startAutoSlideIfNotRunning(); // Restart auto sliding if not already running
     });
 
     startAutoSlide(); // Start automatic sliding by default
